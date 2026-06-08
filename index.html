@@ -728,7 +728,7 @@
       document.getElementById('form-state').style.display = 'none';
       const successEl = document.getElementById('success-state');
       successEl.classList.add('visible');
-      loadWidget(firstName);
+      requestAnimationFrame(() => loadWidget(firstName));
     }, 1200);
   }
 
