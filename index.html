@@ -411,12 +411,12 @@
 
   /* SUCCESS STATE */
   .success-state {
-    display: none;
+    visibility: hidden; height: 0; overflow: hidden;
     text-align: center;
     padding: 16px 0;
   }
 
-  .success-state.visible { display: block; }
+  .success-state.visible { visibility: visible; height: auto; overflow: visible; }
 
   .success-icon {
     width: 64px;
@@ -728,7 +728,7 @@
       document.getElementById('form-state').style.display = 'none';
       const successEl = document.getElementById('success-state');
       successEl.classList.add('visible');
-      requestAnimationFrame(() => loadWidget(firstName));
+      setTimeout(() => loadWidget(firstName), 300);
     }, 1200);
   }
 
