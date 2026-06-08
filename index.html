@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>NinjaTrader — Welcome to Futures</title>
 <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Syne:wght@400;600;700;800&display=swap" rel="stylesheet">
+<script src="https://unpkg.com/@elevenlabs/convai-widget-embed" async type="text/javascript"></script>
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -734,22 +735,10 @@
   function loadWidget(name) {
     const container = document.getElementById('widget-container');
     container.innerHTML = '';
-
-    // Create widget element fresh so it initializes cleanly
     const widget = document.createElement('elevenlabs-convai');
     widget.setAttribute('agent-id', 'agent_2201ktcbm27me0yvwh5gby241qbd');
     widget.setAttribute('dynamic-variables', JSON.stringify({ user_name: name }));
     container.appendChild(widget);
-
-    // Load the script if not already loaded
-    if (!document.querySelector('script[src*="elevenlabs"]')) {
-      const script = document.createElement('script');
-      script.src = 'https://unpkg.com/@elevenlabs/convai-widget-embed';
-      script.type = 'text/javascript';
-      document.body.appendChild(script);
-    } else if (window.customElements && window.customElements.get('elevenlabs-convai')) {
-      // Script already loaded, widget should self-initialize
-    }
   }
 
   document.addEventListener('keydown', (e) => {
