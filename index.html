@@ -52,400 +52,71 @@
     backdrop-filter: blur(8px);
   }
 
-  .nav-logo {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-weight: 900;
-    font-size: 22px;
-    letter-spacing: 0.04em;
-    color: var(--white);
-    text-transform: uppercase;
-  }
-
-  .nav-links {
-    display: flex;
-    align-items: center;
-    gap: 32px;
-    list-style: none;
-  }
-
-  .nav-links a {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-weight: 700;
-    font-size: 13px;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: rgba(255,255,255,0.75);
-    text-decoration: none;
-    transition: color 0.2s;
-  }
-
+  .nav-logo { font-family: 'Barlow Condensed', sans-serif; font-weight: 900; font-size: 22px; letter-spacing: 0.04em; color: var(--white); text-transform: uppercase; }
+  .nav-links { display: flex; align-items: center; gap: 32px; list-style: none; }
+  .nav-links a { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(255,255,255,0.75); text-decoration: none; transition: color 0.2s; }
   .nav-links a:hover { color: var(--white); }
-
-  .nav-actions {
-    display: flex;
-    align-items: center;
-    gap: 20px;
-  }
-
-  .nav-login {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-weight: 700;
-    font-size: 13px;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: var(--white);
-    text-decoration: none;
-    transition: color 0.2s;
-  }
-
+  .nav-actions { display: flex; align-items: center; gap: 20px; }
+  .nav-login { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--white); text-decoration: none; transition: color 0.2s; }
   .nav-login:hover { color: var(--orange); }
-
-  .btn-open {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-weight: 800;
-    font-size: 13px;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    background: var(--orange);
-    color: var(--white);
-    border: none;
-    padding: 10px 20px;
-    cursor: pointer;
-    text-decoration: none;
-    transition: background 0.2s;
-  }
-
+  .btn-open { font-family: 'Barlow Condensed', sans-serif; font-weight: 800; font-size: 13px; letter-spacing: 0.1em; text-transform: uppercase; background: var(--orange); color: var(--white); border: none; padding: 10px 20px; cursor: pointer; text-decoration: none; transition: background 0.2s; }
   .btn-open:hover { background: var(--orange-hover); }
 
-  .hero {
-    position: relative;
-    z-index: 1;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    min-height: calc(100vh - 64px);
-    padding: 80px 24px 120px;
-    text-align: center;
-    overflow: hidden;
-  }
+  .hero { position: relative; z-index: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: calc(100vh - 64px); padding: 80px 24px 120px; text-align: center; overflow: hidden; }
+  .hero::before { content: ''; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -54%); width: 680px; height: 680px; background: radial-gradient(ellipse, rgba(140,50,10,0.55) 0%, rgba(90,25,5,0.2) 45%, transparent 70%); pointer-events: none; }
 
-  .hero::before {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -54%);
-    width: 680px;
-    height: 680px;
-    background: radial-gradient(ellipse, rgba(140,50,10,0.55) 0%, rgba(90,25,5,0.2) 45%, transparent 70%);
-    pointer-events: none;
-  }
-
-  .octagon-wrap {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -54%);
-    width: 560px;
-    height: 560px;
-    pointer-events: none;
-  }
-
+  .octagon-wrap { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -54%); width: 560px; height: 560px; pointer-events: none; }
   .octagon-wrap svg { width: 100%; height: 100%; }
 
-  .star {
-    position: absolute;
-    pointer-events: none;
-    opacity: 0.55;
-  }
-
+  .star { position: absolute; pointer-events: none; opacity: 0.55; }
   .star svg { display: block; }
 
-  .partnership {
-    position: relative;
-    display: flex;
-    align-items: center;
-    gap: 16px;
-    margin-bottom: 40px;
-    animation: fadeUp 0.7s ease both;
-  }
+  .partnership { position: relative; display: flex; align-items: center; gap: 16px; margin-bottom: 40px; animation: fadeUp 0.7s ease both; }
+  .partnership-divider { width: 1px; height: 36px; background: rgba(255,255,255,0.3); }
+  .partnership-ufc { font-family: 'Barlow Condensed', sans-serif; font-weight: 900; font-size: 28px; color: #e8211a; letter-spacing: 0.02em; line-height: 1; }
+  .partnership-nt { display: flex; flex-direction: column; align-items: flex-start; }
+  .partnership-nt-name { font-family: 'Barlow Condensed', sans-serif; font-weight: 900; font-size: 20px; letter-spacing: 0.05em; color: var(--white); line-height: 1; }
+  .partnership-nt-sub { font-size: 9px; letter-spacing: 0.12em; color: var(--muted); text-transform: uppercase; margin-top: 3px; }
+  .official-badge { display: block; font-size: 9px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); margin-top: 6px; text-align: center; }
 
-  .partnership-divider {
-    width: 1px;
-    height: 36px;
-    background: rgba(255,255,255,0.3);
-  }
-
-  .partnership-ufc {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-weight: 900;
-    font-size: 28px;
-    color: #e8211a;
-    letter-spacing: 0.02em;
-    line-height: 1;
-  }
-
-  .partnership-nt {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .partnership-nt-name {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-weight: 900;
-    font-size: 20px;
-    letter-spacing: 0.05em;
-    color: var(--white);
-    line-height: 1;
-  }
-
-  .partnership-nt-sub {
-    font-size: 9px;
-    letter-spacing: 0.12em;
-    color: var(--muted);
-    text-transform: uppercase;
-    margin-top: 3px;
-  }
-
-  .official-badge {
-    display: block;
-    font-size: 9px;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--muted);
-    margin-top: 6px;
-    text-align: center;
-  }
-
-  .hero-headline {
-    position: relative;
-    font-family: 'Barlow Condensed', sans-serif;
-    font-weight: 900;
-    font-size: clamp(52px, 8vw, 108px);
-    line-height: 0.92;
-    text-transform: uppercase;
-    letter-spacing: -0.01em;
-    margin-bottom: 28px;
-    animation: fadeUp 0.7s ease 0.1s both;
-  }
-
+  .hero-headline { position: relative; font-family: 'Barlow Condensed', sans-serif; font-weight: 900; font-size: clamp(52px, 8vw, 108px); line-height: 0.92; text-transform: uppercase; letter-spacing: -0.01em; margin-bottom: 28px; animation: fadeUp 0.7s ease 0.1s both; }
   .hero-headline em { font-style: italic; color: var(--orange); }
-
-  .hero-sub {
-    position: relative;
-    font-size: clamp(15px, 1.8vw, 18px);
-    color: rgba(255,255,255,0.75);
-    line-height: 1.6;
-    max-width: 540px;
-    margin-bottom: 8px;
-    animation: fadeUp 0.7s ease 0.2s both;
-  }
-
+  .hero-sub { position: relative; font-size: clamp(15px, 1.8vw, 18px); color: rgba(255,255,255,0.75); line-height: 1.6; max-width: 540px; margin-bottom: 8px; animation: fadeUp 0.7s ease 0.2s both; }
   .hero-sub strong { color: var(--white); font-weight: 600; }
+  .hero-ctas { position: relative; display: flex; align-items: center; gap: 16px; margin-top: 40px; animation: fadeUp 0.7s ease 0.3s both; flex-wrap: wrap; justify-content: center; }
 
-  .hero-ctas {
-    position: relative;
-    display: flex;
-    align-items: center;
-    gap: 16px;
-    margin-top: 40px;
-    animation: fadeUp 0.7s ease 0.3s both;
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-
-  .btn-primary {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-weight: 800;
-    font-size: 16px;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    background: var(--orange);
-    color: var(--white);
-    border: none;
-    padding: 18px 36px;
-    cursor: pointer;
-    text-decoration: none;
-    transition: background 0.2s, transform 0.15s;
-    display: inline-block;
-  }
-
+  .btn-primary { font-family: 'Barlow Condensed', sans-serif; font-weight: 800; font-size: 16px; letter-spacing: 0.1em; text-transform: uppercase; background: var(--orange); color: var(--white); border: none; padding: 18px 36px; cursor: pointer; text-decoration: none; transition: background 0.2s, transform 0.15s; display: inline-block; }
   .btn-primary:hover { background: var(--orange-hover); transform: translateY(-1px); }
-
-  .btn-secondary {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-weight: 800;
-    font-size: 16px;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    background: transparent;
-    color: var(--white);
-    border: 2px solid rgba(255,255,255,0.35);
-    padding: 16px 36px;
-    cursor: pointer;
-    text-decoration: none;
-    transition: border-color 0.2s, transform 0.15s;
-    display: inline-block;
-  }
-
+  .btn-secondary { font-family: 'Barlow Condensed', sans-serif; font-weight: 800; font-size: 16px; letter-spacing: 0.1em; text-transform: uppercase; background: transparent; color: var(--white); border: 2px solid rgba(255,255,255,0.35); padding: 16px 36px; cursor: pointer; text-decoration: none; transition: border-color 0.2s, transform 0.15s; display: inline-block; }
   .btn-secondary:hover { border-color: var(--white); transform: translateY(-1px); }
 
-  .stats-bar {
-    position: relative;
-    z-index: 2;
-    display: flex;
-    justify-content: center;
-    gap: 0;
-    border-top: 1px solid rgba(255,255,255,0.07);
-    border-bottom: 1px solid rgba(255,255,255,0.07);
-    background: rgba(255,255,255,0.02);
-    overflow-x: auto;
-  }
-
-  .stat {
-    flex: 1;
-    min-width: 160px;
-    max-width: 260px;
-    padding: 36px 24px;
-    text-align: center;
-    border-right: 1px solid rgba(255,255,255,0.07);
-  }
-
+  .stats-bar { position: relative; z-index: 2; display: flex; justify-content: center; gap: 0; border-top: 1px solid rgba(255,255,255,0.07); border-bottom: 1px solid rgba(255,255,255,0.07); background: rgba(255,255,255,0.02); overflow-x: auto; }
+  .stat { flex: 1; min-width: 160px; max-width: 260px; padding: 36px 24px; text-align: center; border-right: 1px solid rgba(255,255,255,0.07); }
   .stat:last-child { border-right: none; }
+  .stat-num { font-family: 'Barlow Condensed', sans-serif; font-weight: 900; font-size: 40px; color: var(--orange); letter-spacing: -0.02em; line-height: 1; margin-bottom: 6px; }
+  .stat-label { font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
 
-  .stat-num {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-weight: 900;
-    font-size: 40px;
-    color: var(--orange);
-    letter-spacing: -0.02em;
-    line-height: 1;
-    margin-bottom: 6px;
-  }
-
-  .stat-label {
-    font-size: 12px;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: var(--muted);
-  }
-
-  .features {
-    position: relative;
-    z-index: 1;
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 100px 48px;
-  }
-
-  .features-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 2px;
-    background: rgba(255,255,255,0.05);
-  }
-
-  .feature-card {
-    background: var(--bg);
-    padding: 40px 36px;
-    transition: background 0.2s;
-  }
-
+  .features { position: relative; z-index: 1; max-width: 1100px; margin: 0 auto; padding: 100px 48px; }
+  .features-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; background: rgba(255,255,255,0.05); }
+  .feature-card { background: var(--bg); padding: 40px 36px; transition: background 0.2s; }
   .feature-card:hover { background: #110d0b; }
-
-  .feature-icon {
-    width: 44px;
-    height: 44px;
-    margin-bottom: 20px;
-    color: var(--orange);
-  }
-
-  .feature-title {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-weight: 800;
-    font-size: 22px;
-    text-transform: uppercase;
-    letter-spacing: 0.03em;
-    margin-bottom: 12px;
-  }
-
+  .feature-icon { width: 44px; height: 44px; margin-bottom: 20px; color: var(--orange); }
+  .feature-title { font-family: 'Barlow Condensed', sans-serif; font-weight: 800; font-size: 22px; text-transform: uppercase; letter-spacing: 0.03em; margin-bottom: 12px; }
   .feature-desc { font-size: 14px; color: var(--muted); line-height: 1.7; }
 
-  .bottom-cta {
-    position: relative;
-    z-index: 1;
-    text-align: center;
-    padding: 100px 24px;
-    background: linear-gradient(to bottom, var(--bg), #120a05, var(--bg));
-  }
-
-  .bottom-cta h2 {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-weight: 900;
-    font-size: clamp(40px, 6vw, 72px);
-    text-transform: uppercase;
-    letter-spacing: -0.01em;
-    margin-bottom: 20px;
-  }
-
+  .bottom-cta { position: relative; z-index: 1; text-align: center; padding: 100px 24px; background: linear-gradient(to bottom, var(--bg), #120a05, var(--bg)); }
+  .bottom-cta h2 { font-family: 'Barlow Condensed', sans-serif; font-weight: 900; font-size: clamp(40px, 6vw, 72px); text-transform: uppercase; letter-spacing: -0.01em; margin-bottom: 20px; }
   .bottom-cta h2 em { font-style: italic; color: var(--orange); }
+  .bottom-cta p { font-size: 16px; color: var(--muted); max-width: 440px; margin: 0 auto 40px; line-height: 1.6; }
 
-  .bottom-cta p {
-    font-size: 16px;
-    color: var(--muted);
-    max-width: 440px;
-    margin: 0 auto 40px;
-    line-height: 1.6;
-  }
+  footer { position: relative; z-index: 1; border-top: 1px solid rgba(255,255,255,0.07); padding: 28px 48px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px; }
+  .footer-logo { font-family: 'Barlow Condensed', sans-serif; font-weight: 900; font-size: 16px; letter-spacing: 0.06em; text-transform: uppercase; color: rgba(255,255,255,0.4); }
+  .footer-legal { font-size: 11px; color: rgba(255,255,255,0.25); max-width: 600px; line-height: 1.5; }
 
-  footer {
-    position: relative;
-    z-index: 1;
-    border-top: 1px solid rgba(255,255,255,0.07);
-    padding: 28px 48px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 16px;
-  }
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
 
-  .footer-logo {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-weight: 900;
-    font-size: 16px;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    color: rgba(255,255,255,0.4);
-  }
-
-  .footer-legal {
-    font-size: 11px;
-    color: rgba(255,255,255,0.25);
-    max-width: 600px;
-    line-height: 1.5;
-  }
-
-  @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(20px); }
-    to   { opacity: 1; transform: translateY(0); }
-  }
-
-  @media (max-width: 900px) {
-    nav { padding: 0 24px; }
-    .nav-links { display: none; }
-    .features { padding: 60px 24px; }
-    .features-grid { grid-template-columns: 1fr; }
-    footer { flex-direction: column; align-items: flex-start; }
-  }
-
-  @media (max-width: 600px) {
-    .octagon-wrap { width: 340px; height: 340px; }
-    .stats-bar { flex-wrap: wrap; }
-    .stat { min-width: 50%; }
-  }
+  @media (max-width: 900px) { nav { padding: 0 24px; } .nav-links { display: none; } .features { padding: 60px 24px; } .features-grid { grid-template-columns: 1fr; } footer { flex-direction: column; align-items: flex-start; } }
+  @media (max-width: 600px) { .octagon-wrap { width: 340px; height: 340px; } .stats-bar { flex-wrap: wrap; } .stat { min-width: 50%; } }
 </style>
 </head>
 <body>
@@ -467,14 +138,12 @@
 </nav>
 
 <section class="hero">
-
   <div class="octagon-wrap">
     <svg viewBox="0 0 560 560" fill="none" xmlns="http://www.w3.org/2000/svg">
       <polygon points="196,20 364,20 540,196 540,364 364,540 196,540 20,364 20,196" stroke="rgba(232,69,10,0.3)" stroke-width="1.5" fill="none"/>
       <polygon points="206,34 354,34 526,206 526,354 354,526 206,526 34,354 34,206" stroke="rgba(232,69,10,0.12)" stroke-width="1" fill="none"/>
     </svg>
   </div>
-
   <div class="star" style="top:12%; left:6%; transform:rotate(-20deg)"><svg width="52" height="52" viewBox="0 0 52 52"><polygon points="26,2 32,20 51,20 36,32 42,50 26,38 10,50 16,32 1,20 20,20" fill="rgba(255,255,255,0.12)"/></svg></div>
   <div class="star" style="top:22%; left:11%; transform:rotate(10deg)"><svg width="28" height="28" viewBox="0 0 52 52"><polygon points="26,2 32,20 51,20 36,32 42,50 26,38 10,50 16,32 1,20 20,20" fill="rgba(255,255,255,0.08)"/></svg></div>
   <div class="star" style="top:55%; left:4%; transform:rotate(5deg)"><svg width="38" height="38" viewBox="0 0 52 52"><polygon points="26,2 32,20 51,20 36,32 42,50 26,38 10,50 16,32 1,20 20,20" fill="rgba(255,255,255,0.1)"/></svg></div>
@@ -483,7 +152,6 @@
   <div class="star" style="top:28%; right:5%; transform:rotate(-8deg)"><svg width="26" height="26" viewBox="0 0 52 52"><polygon points="26,2 32,20 51,20 36,32 42,50 26,38 10,50 16,32 1,20 20,20" fill="rgba(255,255,255,0.08)"/></svg></div>
   <div class="star" style="top:60%; right:8%; transform:rotate(20deg)"><svg width="48" height="48" viewBox="0 0 52 52"><polygon points="26,2 32,20 51,20 36,32 42,50 26,38 10,50 16,32 1,20 20,20" fill="rgba(255,255,255,0.12)"/></svg></div>
   <div class="star" style="top:78%; right:5%"><svg width="20" height="20" viewBox="0 0 52 52"><polygon points="26,2 32,20 51,20 36,32 42,50 26,38 10,50 16,32 1,20 20,20" fill="rgba(255,255,255,0.07)"/></svg></div>
-
   <div class="partnership">
     <div class="partnership-ufc">UFC</div>
     <div class="partnership-divider"></div>
@@ -493,19 +161,12 @@
     </div>
   </div>
   <div class="official-badge">Official Partner of UFC</div>
-
   <h1 class="hero-headline">Trade With The <em>#1</em><br>Rated Futures Platform</h1>
-
-  <p class="hero-sub">
-    Low commissions and day-trading margins. Free simulated trading.<br>
-    <strong>Built for traders who don't tap out.</strong>
-  </p>
-
+  <p class="hero-sub">Low commissions and day-trading margins. Free simulated trading.<br><strong>Built for traders who don't tap out.</strong></p>
   <div class="hero-ctas">
     <a href="#" class="btn-primary">Start Trading Futures</a>
     <a href="#" class="btn-secondary">Train in Sim Mode</a>
   </div>
-
 </section>
 
 <div class="stats-bar">
@@ -564,7 +225,41 @@
   <div class="footer-legal">Futures trading involves substantial risk of loss and is not appropriate for all investors. Past performance is not necessarily indicative of future results. NinjaTrader LLC is registered as a Futures Commission Merchant with the CFTC.</div>
 </footer>
 
-<elevenlabs-convai agent-id="agent_2201ktcbm27me0yvwh5gby241qbd"></elevenlabs-convai>
+<script>
+  window.addEventListener('load', function() {
+    fetch('https://api.npoint.io/6792a978b829cb379e3c')
+      .then(function(r) { return r.json(); })
+      .then(function(data) {
+        var vars = {
+          user_name:           'Mia',
+          kraken_account_id:   'KR-1234567',
+          caller_phone_number: '+1-647-200-7568',
+          signup_date:         'June first, 2026',
+          user_id:             'USR-78421',
+          deposit_amount:      data.amount,
+          deposit_date:        data.initiated_date
+        };
+        var w = document.createElement('elevenlabs-convai');
+        w.setAttribute('agent-id', 'agent_2201ktcbm27me0yvwh5gby241qbd');
+        w.setAttribute('dynamic-variables', JSON.stringify(vars));
+        document.body.appendChild(w);
+      })
+      .catch(function() {
+        var w = document.createElement('elevenlabs-convai');
+        w.setAttribute('agent-id', 'agent_2201ktcbm27me0yvwh5gby241qbd');
+        w.setAttribute('dynamic-variables', JSON.stringify({
+          user_name:           'Mia',
+          kraken_account_id:   'KR-1234567',
+          caller_phone_number: '+1-647-200-7568',
+          signup_date:         'June first, 2026',
+          user_id:             'USR-78421',
+          deposit_amount:      '$500',
+          deposit_date:        'June fifth, 2026'
+        }));
+        document.body.appendChild(w);
+      });
+  });
+</script>
 
 </body>
 </html>
