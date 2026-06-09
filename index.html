@@ -27,7 +27,6 @@
     overflow-x: hidden;
   }
 
-  /* ── DOT GRID SIDES ── */
   body::before {
     content: '';
     position: fixed;
@@ -40,7 +39,6 @@
     z-index: 0;
   }
 
-  /* ── NAV ── */
   nav {
     position: relative;
     z-index: 10;
@@ -119,7 +117,6 @@
 
   .btn-open:hover { background: var(--orange-hover); }
 
-  /* ── HERO ── */
   .hero {
     position: relative;
     z-index: 1;
@@ -145,7 +142,6 @@
     pointer-events: none;
   }
 
-  /* ── OCTAGON ── */
   .octagon-wrap {
     position: absolute;
     top: 50%;
@@ -156,12 +152,8 @@
     pointer-events: none;
   }
 
-  .octagon-wrap svg {
-    width: 100%;
-    height: 100%;
-  }
+  .octagon-wrap svg { width: 100%; height: 100%; }
 
-  /* ── STARS ── */
   .star {
     position: absolute;
     pointer-events: none;
@@ -170,7 +162,6 @@
 
   .star svg { display: block; }
 
-  /* ── PARTNERSHIP BADGE ── */
   .partnership {
     position: relative;
     display: flex;
@@ -228,7 +219,6 @@
     text-align: center;
   }
 
-  /* ── HEADLINE ── */
   .hero-headline {
     position: relative;
     font-family: 'Barlow Condensed', sans-serif;
@@ -241,10 +231,7 @@
     animation: fadeUp 0.7s ease 0.1s both;
   }
 
-  .hero-headline em {
-    font-style: italic;
-    color: var(--orange);
-  }
+  .hero-headline em { font-style: italic; color: var(--orange); }
 
   .hero-sub {
     position: relative;
@@ -256,12 +243,8 @@
     animation: fadeUp 0.7s ease 0.2s both;
   }
 
-  .hero-sub strong {
-    color: var(--white);
-    font-weight: 600;
-  }
+  .hero-sub strong { color: var(--white); font-weight: 600; }
 
-  /* ── CTA BUTTONS ── */
   .hero-ctas {
     position: relative;
     display: flex;
@@ -289,10 +272,7 @@
     display: inline-block;
   }
 
-  .btn-primary:hover {
-    background: var(--orange-hover);
-    transform: translateY(-1px);
-  }
+  .btn-primary:hover { background: var(--orange-hover); transform: translateY(-1px); }
 
   .btn-secondary {
     font-family: 'Barlow Condensed', sans-serif;
@@ -310,12 +290,8 @@
     display: inline-block;
   }
 
-  .btn-secondary:hover {
-    border-color: var(--white);
-    transform: translateY(-1px);
-  }
+  .btn-secondary:hover { border-color: var(--white); transform: translateY(-1px); }
 
-  /* ── STATS BAR ── */
   .stats-bar {
     position: relative;
     z-index: 2;
@@ -356,7 +332,6 @@
     color: var(--muted);
   }
 
-  /* ── FEATURES ── */
   .features {
     position: relative;
     z-index: 1;
@@ -396,13 +371,8 @@
     margin-bottom: 12px;
   }
 
-  .feature-desc {
-    font-size: 14px;
-    color: var(--muted);
-    line-height: 1.7;
-  }
+  .feature-desc { font-size: 14px; color: var(--muted); line-height: 1.7; }
 
-  /* ── BOTTOM CTA ── */
   .bottom-cta {
     position: relative;
     z-index: 1;
@@ -420,10 +390,7 @@
     margin-bottom: 20px;
   }
 
-  .bottom-cta h2 em {
-    font-style: italic;
-    color: var(--orange);
-  }
+  .bottom-cta h2 em { font-style: italic; color: var(--orange); }
 
   .bottom-cta p {
     font-size: 16px;
@@ -433,7 +400,6 @@
     line-height: 1.6;
   }
 
-  /* ── FOOTER ── */
   footer {
     position: relative;
     z-index: 1;
@@ -462,13 +428,11 @@
     line-height: 1.5;
   }
 
-  /* ── ANIMATIONS ── */
   @keyframes fadeUp {
     from { opacity: 0; transform: translateY(20px); }
     to   { opacity: 1; transform: translateY(0); }
   }
 
-  /* ── RESPONSIVE ── */
   @media (max-width: 900px) {
     nav { padding: 0 24px; }
     .nav-links { display: none; }
@@ -486,7 +450,6 @@
 </head>
 <body>
 
-<!-- NAV -->
 <nav>
   <div class="nav-logo">NinjaTrader</div>
   <ul class="nav-links">
@@ -503,44 +466,23 @@
   </div>
 </nav>
 
-<!-- HERO -->
 <section class="hero">
 
   <div class="octagon-wrap">
     <svg viewBox="0 0 560 560" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <polygon
-        points="196,20 364,20 540,196 540,364 364,540 196,540 20,364 20,196"
-        stroke="rgba(232,69,10,0.3)" stroke-width="1.5" fill="none"/>
-      <polygon
-        points="206,34 354,34 526,206 526,354 354,526 206,526 34,354 34,206"
-        stroke="rgba(232,69,10,0.12)" stroke-width="1" fill="none"/>
+      <polygon points="196,20 364,20 540,196 540,364 364,540 196,540 20,364 20,196" stroke="rgba(232,69,10,0.3)" stroke-width="1.5" fill="none"/>
+      <polygon points="206,34 354,34 526,206 526,354 354,526 206,526 34,354 34,206" stroke="rgba(232,69,10,0.12)" stroke-width="1" fill="none"/>
     </svg>
   </div>
 
-  <div class="star" style="top:12%; left:6%; transform:rotate(-20deg)">
-    <svg width="52" height="52" viewBox="0 0 52 52"><polygon points="26,2 32,20 51,20 36,32 42,50 26,38 10,50 16,32 1,20 20,20" fill="rgba(255,255,255,0.12)"/></svg>
-  </div>
-  <div class="star" style="top:22%; left:11%; transform:rotate(10deg)">
-    <svg width="28" height="28" viewBox="0 0 52 52"><polygon points="26,2 32,20 51,20 36,32 42,50 26,38 10,50 16,32 1,20 20,20" fill="rgba(255,255,255,0.08)"/></svg>
-  </div>
-  <div class="star" style="top:55%; left:4%; transform:rotate(5deg)">
-    <svg width="38" height="38" viewBox="0 0 52 52"><polygon points="26,2 32,20 51,20 36,32 42,50 26,38 10,50 16,32 1,20 20,20" fill="rgba(255,255,255,0.1)"/></svg>
-  </div>
-  <div class="star" style="top:70%; left:9%">
-    <svg width="22" height="22" viewBox="0 0 52 52"><polygon points="26,2 32,20 51,20 36,32 42,50 26,38 10,50 16,32 1,20 20,20" fill="rgba(255,255,255,0.07)"/></svg>
-  </div>
-  <div class="star" style="top:10%; right:7%; transform:rotate(15deg)">
-    <svg width="44" height="44" viewBox="0 0 52 52"><polygon points="26,2 32,20 51,20 36,32 42,50 26,38 10,50 16,32 1,20 20,20" fill="rgba(255,255,255,0.1)"/></svg>
-  </div>
-  <div class="star" style="top:28%; right:5%; transform:rotate(-8deg)">
-    <svg width="26" height="26" viewBox="0 0 52 52"><polygon points="26,2 32,20 51,20 36,32 42,50 26,38 10,50 16,32 1,20 20,20" fill="rgba(255,255,255,0.08)"/></svg>
-  </div>
-  <div class="star" style="top:60%; right:8%; transform:rotate(20deg)">
-    <svg width="48" height="48" viewBox="0 0 52 52"><polygon points="26,2 32,20 51,20 36,32 42,50 26,38 10,50 16,32 1,20 20,20" fill="rgba(255,255,255,0.12)"/></svg>
-  </div>
-  <div class="star" style="top:78%; right:5%">
-    <svg width="20" height="20" viewBox="0 0 52 52"><polygon points="26,2 32,20 51,20 36,32 42,50 26,38 10,50 16,32 1,20 20,20" fill="rgba(255,255,255,0.07)"/></svg>
-  </div>
+  <div class="star" style="top:12%; left:6%; transform:rotate(-20deg)"><svg width="52" height="52" viewBox="0 0 52 52"><polygon points="26,2 32,20 51,20 36,32 42,50 26,38 10,50 16,32 1,20 20,20" fill="rgba(255,255,255,0.12)"/></svg></div>
+  <div class="star" style="top:22%; left:11%; transform:rotate(10deg)"><svg width="28" height="28" viewBox="0 0 52 52"><polygon points="26,2 32,20 51,20 36,32 42,50 26,38 10,50 16,32 1,20 20,20" fill="rgba(255,255,255,0.08)"/></svg></div>
+  <div class="star" style="top:55%; left:4%; transform:rotate(5deg)"><svg width="38" height="38" viewBox="0 0 52 52"><polygon points="26,2 32,20 51,20 36,32 42,50 26,38 10,50 16,32 1,20 20,20" fill="rgba(255,255,255,0.1)"/></svg></div>
+  <div class="star" style="top:70%; left:9%"><svg width="22" height="22" viewBox="0 0 52 52"><polygon points="26,2 32,20 51,20 36,32 42,50 26,38 10,50 16,32 1,20 20,20" fill="rgba(255,255,255,0.07)"/></svg></div>
+  <div class="star" style="top:10%; right:7%; transform:rotate(15deg)"><svg width="44" height="44" viewBox="0 0 52 52"><polygon points="26,2 32,20 51,20 36,32 42,50 26,38 10,50 16,32 1,20 20,20" fill="rgba(255,255,255,0.1)"/></svg></div>
+  <div class="star" style="top:28%; right:5%; transform:rotate(-8deg)"><svg width="26" height="26" viewBox="0 0 52 52"><polygon points="26,2 32,20 51,20 36,32 42,50 26,38 10,50 16,32 1,20 20,20" fill="rgba(255,255,255,0.08)"/></svg></div>
+  <div class="star" style="top:60%; right:8%; transform:rotate(20deg)"><svg width="48" height="48" viewBox="0 0 52 52"><polygon points="26,2 32,20 51,20 36,32 42,50 26,38 10,50 16,32 1,20 20,20" fill="rgba(255,255,255,0.12)"/></svg></div>
+  <div class="star" style="top:78%; right:5%"><svg width="20" height="20" viewBox="0 0 52 52"><polygon points="26,2 32,20 51,20 36,32 42,50 26,38 10,50 16,32 1,20 20,20" fill="rgba(255,255,255,0.07)"/></svg></div>
 
   <div class="partnership">
     <div class="partnership-ufc">UFC</div>
@@ -552,9 +494,7 @@
   </div>
   <div class="official-badge">Official Partner of UFC</div>
 
-  <h1 class="hero-headline">
-    Trade With The <em>#1</em><br>Rated Futures Platform
-  </h1>
+  <h1 class="hero-headline">Trade With The <em>#1</em><br>Rated Futures Platform</h1>
 
   <p class="hero-sub">
     Low commissions and day-trading margins. Free simulated trading.<br>
@@ -568,90 +508,48 @@
 
 </section>
 
-<!-- STATS BAR -->
 <div class="stats-bar">
-  <div class="stat">
-    <div class="stat-num">$50</div>
-    <div class="stat-label">Day-Trade Margins on MES</div>
-  </div>
-  <div class="stat">
-    <div class="stat-num">$0</div>
-    <div class="stat-label">Platform Fee</div>
-  </div>
-  <div class="stat">
-    <div class="stat-num">1M+</div>
-    <div class="stat-label">Traders on the Platform</div>
-  </div>
-  <div class="stat">
-    <div class="stat-num">Free</div>
-    <div class="stat-label">Simulated Trading</div>
-  </div>
+  <div class="stat"><div class="stat-num">$50</div><div class="stat-label">Day-Trade Margins on MES</div></div>
+  <div class="stat"><div class="stat-num">$0</div><div class="stat-label">Platform Fee</div></div>
+  <div class="stat"><div class="stat-num">1M+</div><div class="stat-label">Traders on the Platform</div></div>
+  <div class="stat"><div class="stat-num">Free</div><div class="stat-label">Simulated Trading</div></div>
 </div>
 
-<!-- FEATURES -->
 <div class="features">
   <div class="features-grid">
-
     <div class="feature-card">
-      <svg class="feature-icon" viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-        <polyline points="4,30 14,18 22,24 30,12 40,20"/>
-        <polyline points="34,20 40,20 40,26"/>
-      </svg>
+      <svg class="feature-icon" viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="4,30 14,18 22,24 30,12 40,20"/><polyline points="34,20 40,20 40,26"/></svg>
       <div class="feature-title">Industry-Low Commissions</div>
       <div class="feature-desc">Trade Micro E-Mini futures from $0.09/contract. Keep more of your profits where they belong — in your account.</div>
     </div>
-
     <div class="feature-card">
-      <svg class="feature-icon" viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-        <rect x="6" y="6" width="32" height="32" rx="2"/>
-        <line x1="6" y1="16" x2="38" y2="16"/>
-        <line x1="16" y1="16" x2="16" y2="38"/>
-      </svg>
+      <svg class="feature-icon" viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="6" width="32" height="32" rx="2"/><line x1="6" y1="16" x2="38" y2="16"/><line x1="16" y1="16" x2="16" y2="38"/></svg>
       <div class="feature-title">Advanced Charting</div>
       <div class="feature-desc">Professional-grade charts with 100+ indicators, custom strategies, and direct order execution right from the chart.</div>
     </div>
-
     <div class="feature-card">
-      <svg class="feature-icon" viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-        <circle cx="22" cy="22" r="16"/>
-        <polyline points="22,12 22,22 30,28"/>
-      </svg>
+      <svg class="feature-icon" viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="22" cy="22" r="16"/><polyline points="22,12 22,22 30,28"/></svg>
       <div class="feature-title">Real-Time Market Data</div>
       <div class="feature-desc">Stream live Level II quotes, Time & Sales, and depth-of-market data on CME Group products 24/5.</div>
     </div>
-
     <div class="feature-card">
-      <svg class="feature-icon" viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-        <path d="M22 4 L38 14 L38 30 L22 40 L6 30 L6 14 Z"/>
-        <path d="M22 12 L30 17 L30 27 L22 32 L14 27 L14 17 Z" opacity="0.5"/>
-      </svg>
+      <svg class="feature-icon" viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 4 L38 14 L38 30 L22 40 L6 30 L6 14 Z"/><path d="M22 12 L30 17 L30 27 L22 32 L14 27 L14 17 Z" opacity="0.5"/></svg>
       <div class="feature-title">Free Sim Trading</div>
       <div class="feature-desc">Practice with $100,000 in virtual funds on live market data. Master your strategy before risking real capital.</div>
     </div>
-
     <div class="feature-card">
-      <svg class="feature-icon" viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-        <rect x="8" y="20" width="6" height="14" rx="1"/>
-        <rect x="19" y="12" width="6" height="22" rx="1"/>
-        <rect x="30" y="6" width="6" height="28" rx="1"/>
-      </svg>
+      <svg class="feature-icon" viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="8" y="20" width="6" height="14" rx="1"/><rect x="19" y="12" width="6" height="22" rx="1"/><rect x="30" y="6" width="6" height="28" rx="1"/></svg>
       <div class="feature-title">Strategy Backtesting</div>
       <div class="feature-desc">Test automated strategies against years of historical data with NinjaTrader's Strategy Analyzer.</div>
     </div>
-
     <div class="feature-card">
-      <svg class="feature-icon" viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-        <path d="M6 34 C10 24, 18 16, 22 16 C26 16, 30 28, 38 10"/>
-        <circle cx="22" cy="16" r="3" fill="currentColor"/>
-      </svg>
+      <svg class="feature-icon" viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 34 C10 24, 18 16, 22 16 C26 16, 30 28, 38 10"/><circle cx="22" cy="16" r="3" fill="currentColor"/></svg>
       <div class="feature-title">Automated Trading</div>
       <div class="feature-desc">Build, deploy, and automate trading strategies with NinjaScript — no third-party software required.</div>
     </div>
-
   </div>
 </div>
 
-<!-- BOTTOM CTA -->
 <div class="bottom-cta">
   <h2>Ready to <em>Compete?</em></h2>
   <p>Open a free account in minutes. No funding required to start sim trading today.</p>
@@ -661,15 +559,20 @@
   </div>
 </div>
 
-<!-- FOOTER -->
 <footer>
   <div class="footer-logo">NinjaTrader · A Payward Company</div>
-  <div class="footer-legal">
-    Futures trading involves substantial risk of loss and is not appropriate for all investors. Past performance is not necessarily indicative of future results. NinjaTrader LLC is registered as a Futures Commission Merchant with the CFTC.
-  </div>
+  <div class="footer-legal">Futures trading involves substantial risk of loss and is not appropriate for all investors. Past performance is not necessarily indicative of future results. NinjaTrader LLC is registered as a Futures Commission Merchant with the CFTC.</div>
 </footer>
 
-<elevenlabs-convai agent-id="agent_2201ktcbm27me0yvwh5gby241qbd"></elevenlabs-convai>
+<script>
+  window.addEventListener('load', function() {
+    setTimeout(function() {
+      var w = document.createElement('elevenlabs-convai');
+      w.setAttribute('agent-id', 'agent_2201ktcbm27me0yvwh5gby241qbd');
+      document.body.appendChild(w);
+    }, 300);
+  });
+</script>
 
 </body>
 </html>
