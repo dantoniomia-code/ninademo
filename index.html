@@ -3,749 +3,676 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>NinjaTrader — Welcome to Futures</title>
-<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Syne:wght@400;600;700;800&display=swap" rel="stylesheet">
-<script src="https://unpkg.com/@elevenlabs/convai-widget-embed" async type="text/javascript"></script>
+<title>NinjaTrader — Trade With The #1 Rated Futures Platform</title>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,700;0,800;0,900;1,800&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
   :root {
-    --black: #0a0a0a;
-    --white: #f5f2ee;
-    --amber: #f5a623;
-    --amber-dim: #c47d0e;
-    --amber-glow: rgba(245,166,35,0.12);
-    --gray: #1a1a1a;
-    --gray-mid: #2a2a2a;
-    --gray-line: #2f2f2f;
-    --muted: #666;
-    --muted-light: #999;
-    --green: #22c55e;
+    --bg: #0d0a09;
+    --bg-warm: #1a0f08;
+    --orange: #e8450a;
+    --orange-hover: #ff5520;
+    --white: #ffffff;
+    --muted: #a89080;
+    --border: rgba(232,69,10,0.25);
   }
 
   html, body {
-    height: 100%;
-    background: var(--black);
+    min-height: 100%;
+    background: var(--bg);
     color: var(--white);
-    font-family: 'Syne', sans-serif;
+    font-family: 'Barlow', sans-serif;
     overflow-x: hidden;
   }
 
-  /* Grid background */
+  /* ── DOT GRID SIDES ── */
   body::before {
     content: '';
     position: fixed;
     inset: 0;
-    background-image:
-      linear-gradient(rgba(245,166,35,0.03) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(245,166,35,0.03) 1px, transparent 1px);
-    background-size: 48px 48px;
+    background-image: radial-gradient(circle, rgba(232,69,10,0.35) 1px, transparent 1px);
+    background-size: 28px 28px;
+    -webkit-mask-image: linear-gradient(to right, rgba(0,0,0,0.6) 0%, transparent 22%, transparent 78%, rgba(0,0,0,0.6) 100%);
+    mask-image: linear-gradient(to right, rgba(0,0,0,0.6) 0%, transparent 22%, transparent 78%, rgba(0,0,0,0.6) 100%);
     pointer-events: none;
     z-index: 0;
   }
 
-  /* Glow orb */
-  body::after {
-    content: '';
-    position: fixed;
-    top: -200px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 700px;
-    height: 500px;
-    background: radial-gradient(ellipse, rgba(245,166,35,0.08) 0%, transparent 70%);
-    pointer-events: none;
-    z-index: 0;
-  }
-
-  .page {
+  /* ── NAV ── */
+  nav {
     position: relative;
-    z-index: 1;
-    min-height: 100vh;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 48px;
-    gap: 80px;
-    align-items: center;
-  }
-
-  /* LEFT PANEL */
-  .left {
-    padding: 80px 0;
-  }
-
-  .badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    background: var(--amber-glow);
-    border: 1px solid rgba(245,166,35,0.25);
-    border-radius: 100px;
-    padding: 6px 14px;
-    margin-bottom: 40px;
-    font-family: 'DM Mono', monospace;
-    font-size: 11px;
-    color: var(--amber);
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    animation: fadeUp 0.6s ease both;
-  }
-
-  .badge-dot {
-    width: 6px;
-    height: 6px;
-    background: var(--amber);
-    border-radius: 50%;
-    animation: pulse 2s ease-in-out infinite;
-  }
-
-  @keyframes pulse {
-    0%, 100% { opacity: 1; transform: scale(1); }
-    50% { opacity: 0.5; transform: scale(0.8); }
-  }
-
-  .logo {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    margin-bottom: 48px;
-    animation: fadeUp 0.6s ease 0.05s both;
-  }
-
-  .logo-mark {
-    width: 36px;
-    height: 36px;
-    background: var(--amber);
-    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
-    flex-shrink: 0;
-  }
-
-  .logo-text {
-    font-size: 18px;
-    font-weight: 700;
-    letter-spacing: -0.02em;
-    color: var(--white);
-  }
-
-  .logo-sub {
-    font-family: 'DM Mono', monospace;
-    font-size: 10px;
-    color: var(--muted);
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    margin-top: 2px;
-  }
-
-  h1 {
-    font-size: clamp(36px, 4vw, 52px);
-    font-weight: 800;
-    line-height: 1.05;
-    letter-spacing: -0.03em;
-    margin-bottom: 20px;
-    animation: fadeUp 0.6s ease 0.1s both;
-  }
-
-  h1 em {
-    font-style: normal;
-    color: var(--amber);
-  }
-
-  .subtitle {
-    font-size: 16px;
-    line-height: 1.65;
-    color: var(--muted-light);
-    max-width: 420px;
-    margin-bottom: 48px;
-    font-weight: 400;
-    animation: fadeUp 0.6s ease 0.15s both;
-  }
-
-  .steps {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    animation: fadeUp 0.6s ease 0.2s both;
-  }
-
-  .step {
-    display: flex;
-    align-items: flex-start;
-    gap: 16px;
-  }
-
-  .step-num {
-    font-family: 'DM Mono', monospace;
-    font-size: 11px;
-    color: var(--amber);
-    background: var(--amber-glow);
-    border: 1px solid rgba(245,166,35,0.2);
-    width: 28px;
-    height: 28px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
-    margin-top: 2px;
-  }
-
-  .step-content strong {
-    display: block;
-    font-size: 14px;
-    font-weight: 600;
-    color: var(--white);
-    margin-bottom: 3px;
-  }
-
-  .step-content span {
-    font-size: 13px;
-    color: var(--muted);
-    font-weight: 400;
-    font-family: 'DM Mono', monospace;
-  }
-
-  .kraken-note {
-    margin-top: 48px;
-    padding: 16px 20px;
-    background: rgba(255,255,255,0.03);
-    border: 1px solid var(--gray-line);
-    border-left: 3px solid var(--amber);
-    border-radius: 4px;
-    font-family: 'DM Mono', monospace;
-    font-size: 12px;
-    color: var(--muted-light);
-    line-height: 1.6;
-    animation: fadeUp 0.6s ease 0.25s both;
-  }
-
-  .kraken-note strong {
-    color: var(--white);
-    display: block;
-    margin-bottom: 4px;
-    font-size: 11px;
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-  }
-
-  /* RIGHT PANEL */
-  .right {
-    padding: 80px 0;
-    animation: fadeUp 0.6s ease 0.3s both;
-  }
-
-  .card {
-    background: var(--gray);
-    border: 1px solid var(--gray-line);
-    border-radius: 16px;
-    overflow: hidden;
-    position: relative;
-  }
-
-  .card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 1px;
-    background: linear-gradient(90deg, transparent, rgba(245,166,35,0.4), transparent);
-  }
-
-  .card-header {
-    padding: 28px 32px 24px;
-    border-bottom: 1px solid var(--gray-line);
-  }
-
-  .card-header-top {
+    z-index: 10;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin-bottom: 4px;
+    padding: 0 48px;
+    height: 64px;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+    background: rgba(13,10,9,0.95);
+    backdrop-filter: blur(8px);
   }
 
-  .card-title {
-    font-size: 18px;
+  .nav-logo {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 900;
+    font-size: 22px;
+    letter-spacing: 0.04em;
+    color: var(--white);
+    text-transform: uppercase;
+  }
+
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+    list-style: none;
+  }
+
+  .nav-links a {
+    font-family: 'Barlow Condensed', sans-serif;
     font-weight: 700;
-    letter-spacing: -0.02em;
-  }
-
-  .card-tag {
-    font-family: 'DM Mono', monospace;
-    font-size: 10px;
-    color: var(--green);
-    background: rgba(34,197,94,0.1);
-    border: 1px solid rgba(34,197,94,0.2);
-    padding: 4px 10px;
-    border-radius: 100px;
-    text-transform: uppercase;
-    letter-spacing: 0.06em;
-  }
-
-  .card-desc {
     font-size: 13px;
-    color: var(--muted);
-    font-weight: 400;
-    font-family: 'DM Mono', monospace;
-  }
-
-  .card-body {
-    padding: 32px;
-  }
-
-  /* FORM */
-  .form-group {
-    margin-bottom: 20px;
-  }
-
-  label {
-    display: block;
-    font-family: 'DM Mono', monospace;
-    font-size: 11px;
+    letter-spacing: 0.08em;
     text-transform: uppercase;
+    color: rgba(255,255,255,0.75);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover { color: var(--white); }
+
+  .nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .nav-login {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 13px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--white);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .nav-login:hover { color: var(--orange); }
+
+  .btn-open {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 800;
+    font-size: 13px;
     letter-spacing: 0.1em;
-    color: var(--muted-light);
-    margin-bottom: 8px;
-  }
-
-  input[type="text"],
-  input[type="tel"],
-  select {
-    width: 100%;
-    background: var(--black);
-    border: 1px solid var(--gray-line);
-    border-radius: 8px;
-    padding: 14px 16px;
-    font-family: 'Syne', sans-serif;
-    font-size: 15px;
+    text-transform: uppercase;
+    background: var(--orange);
     color: var(--white);
-    transition: border-color 0.2s, box-shadow 0.2s;
-    outline: none;
-    appearance: none;
-  }
-
-  input::placeholder { color: var(--muted); }
-
-  input:focus, select:focus {
-    border-color: rgba(245,166,35,0.5);
-    box-shadow: 0 0 0 3px rgba(245,166,35,0.08);
-  }
-
-  select {
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath d='M2 4l4 4 4-4' stroke='%23666' stroke-width='1.5' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
-    background-repeat: no-repeat;
-    background-position: right 16px center;
+    border: none;
+    padding: 10px 20px;
     cursor: pointer;
-    color: var(--white);
+    text-decoration: none;
+    transition: background 0.2s;
   }
 
-  select option { background: var(--gray); }
+  .btn-open:hover { background: var(--orange-hover); }
 
-  .form-row {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 16px;
-  }
-
-  .divider {
-    height: 1px;
-    background: var(--gray-line);
-    margin: 24px 0;
+  /* ── HERO ── */
+  .hero {
     position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: calc(100vh - 64px);
+    padding: 80px 24px 120px;
+    text-align: center;
+    overflow: hidden;
   }
 
-  .divider span {
+  /* Radial warm glow behind octagon */
+  .hero::before {
+    content: '';
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
-    background: var(--gray);
-    padding: 0 12px;
-    font-family: 'DM Mono', monospace;
-    font-size: 10px;
+    transform: translate(-50%, -54%);
+    width: 680px;
+    height: 680px;
+    background: radial-gradient(ellipse, rgba(140,50,10,0.55) 0%, rgba(90,25,5,0.2) 45%, transparent 70%);
+    pointer-events: none;
+  }
+
+  /* ── OCTAGON ── */
+  .octagon-wrap {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -54%);
+    width: 560px;
+    height: 560px;
+    pointer-events: none;
+  }
+
+  .octagon-wrap svg {
+    width: 100%;
+    height: 100%;
+  }
+
+  /* ── STARS ── */
+  .star {
+    position: absolute;
+    pointer-events: none;
+    opacity: 0.55;
+  }
+
+  .star svg { display: block; }
+
+  /* ── PARTNERSHIP BADGE ── */
+  .partnership {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 40px;
+    animation: fadeUp 0.7s ease both;
+  }
+
+  .partnership-divider {
+    width: 1px;
+    height: 36px;
+    background: rgba(255,255,255,0.3);
+  }
+
+  .partnership-ufc {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 900;
+    font-size: 28px;
+    color: #e8211a;
+    letter-spacing: 0.02em;
+    line-height: 1;
+  }
+
+  .partnership-nt {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .partnership-nt-name {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 900;
+    font-size: 20px;
+    letter-spacing: 0.05em;
+    color: var(--white);
+    line-height: 1;
+  }
+
+  .partnership-nt-sub {
+    font-size: 9px;
+    letter-spacing: 0.12em;
     color: var(--muted);
     text-transform: uppercase;
-    letter-spacing: 0.08em;
+    margin-top: 3px;
   }
 
-  .submit-btn {
-    width: 100%;
-    padding: 16px;
-    background: var(--amber);
-    color: var(--black);
-    border: none;
-    border-radius: 8px;
-    font-family: 'Syne', sans-serif;
-    font-size: 15px;
-    font-weight: 700;
-    letter-spacing: -0.01em;
-    cursor: pointer;
-    transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
+  .official-badge {
+    display: block;
+    font-size: 9px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-top: 6px;
+    text-align: center;
+  }
+
+  /* ── HEADLINE ── */
+  .hero-headline {
     position: relative;
-    overflow: hidden;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 900;
+    font-size: clamp(52px, 8vw, 108px);
+    line-height: 0.92;
+    text-transform: uppercase;
+    letter-spacing: -0.01em;
+    margin-bottom: 28px;
+    animation: fadeUp 0.7s ease 0.1s both;
   }
 
-  .submit-btn:hover {
-    background: #f0b030;
-    box-shadow: 0 0 24px rgba(245,166,35,0.3);
+  .hero-headline em {
+    font-style: italic;
+    color: var(--orange);
+  }
+
+  .hero-sub {
+    position: relative;
+    font-size: clamp(15px, 1.8vw, 18px);
+    color: rgba(255,255,255,0.75);
+    line-height: 1.6;
+    max-width: 540px;
+    margin-bottom: 8px;
+    animation: fadeUp 0.7s ease 0.2s both;
+  }
+
+  .hero-sub strong {
+    color: var(--white);
+    font-weight: 600;
+  }
+
+  /* ── CTA BUTTONS ── */
+  .hero-ctas {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-top: 40px;
+    animation: fadeUp 0.7s ease 0.3s both;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .btn-primary {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 800;
+    font-size: 16px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    background: var(--orange);
+    color: var(--white);
+    border: none;
+    padding: 18px 36px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background 0.2s, transform 0.15s;
+    display: inline-block;
+  }
+
+  .btn-primary:hover {
+    background: var(--orange-hover);
     transform: translateY(-1px);
   }
 
-  .submit-btn:active { transform: translateY(0); }
-
-  .submit-btn:disabled {
-    opacity: 0.5;
-    cursor: not-allowed;
-    transform: none;
+  .btn-secondary {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 800;
+    font-size: 16px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    background: transparent;
+    color: var(--white);
+    border: 2px solid rgba(255,255,255,0.35);
+    padding: 16px 36px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: border-color 0.2s, transform 0.15s;
+    display: inline-block;
   }
 
-  .legal {
-    margin-top: 16px;
-    font-family: 'DM Mono', monospace;
-    font-size: 11px;
-    color: var(--muted);
-    text-align: center;
-    line-height: 1.5;
+  .btn-secondary:hover {
+    border-color: var(--white);
+    transform: translateY(-1px);
   }
 
-  /* SUCCESS STATE */
-  .success-state {
-    visibility: hidden; height: 0; overflow: hidden;
-    text-align: center;
-    padding: 16px 0;
-  }
-
-  .success-state.visible { visibility: visible; height: auto; overflow: visible; }
-
-  .success-icon {
-    width: 64px;
-    height: 64px;
-    background: rgba(34,197,94,0.1);
-    border: 1px solid rgba(34,197,94,0.3);
-    border-radius: 50%;
+  /* ── STATS BAR ── */
+  .stats-bar {
+    position: relative;
+    z-index: 2;
     display: flex;
-    align-items: center;
     justify-content: center;
-    margin: 0 auto 24px;
-    font-size: 28px;
+    gap: 0;
+    border-top: 1px solid rgba(255,255,255,0.07);
+    border-bottom: 1px solid rgba(255,255,255,0.07);
+    background: rgba(255,255,255,0.02);
+    overflow-x: auto;
   }
 
-  .success-name {
-    font-size: 22px;
-    font-weight: 700;
+  .stat {
+    flex: 1;
+    min-width: 160px;
+    max-width: 260px;
+    padding: 36px 24px;
+    text-align: center;
+    border-right: 1px solid rgba(255,255,255,0.07);
+  }
+
+  .stat:last-child { border-right: none; }
+
+  .stat-num {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 900;
+    font-size: 40px;
+    color: var(--orange);
     letter-spacing: -0.02em;
+    line-height: 1;
+    margin-bottom: 6px;
+  }
+
+  .stat-label {
+    font-size: 12px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  /* ── FEATURES ── */
+  .features {
+    position: relative;
+    z-index: 1;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 100px 48px;
+  }
+
+  .features-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+    background: rgba(255,255,255,0.05);
+  }
+
+  .feature-card {
+    background: var(--bg);
+    padding: 40px 36px;
+    transition: background 0.2s;
+  }
+
+  .feature-card:hover { background: #110d0b; }
+
+  .feature-icon {
+    width: 44px;
+    height: 44px;
+    margin-bottom: 20px;
+    color: var(--orange);
+  }
+
+  .feature-title {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 800;
+    font-size: 22px;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
     margin-bottom: 12px;
   }
 
-  .success-name span { color: var(--amber); }
-
-  .success-msg {
-    font-family: 'DM Mono', monospace;
-    font-size: 13px;
-    color: var(--muted-light);
+  .feature-desc {
+    font-size: 14px;
+    color: var(--muted);
     line-height: 1.7;
-    margin-bottom: 32px;
   }
 
-  .calling-indicator {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    padding: 14px 24px;
-    background: rgba(245,166,35,0.08);
-    border: 1px solid rgba(245,166,35,0.2);
-    border-radius: 8px;
-    margin-bottom: 24px;
-    font-family: 'DM Mono', monospace;
-    font-size: 12px;
-    color: var(--amber);
-  }
-
-  .calling-dots {
-    display: flex;
-    gap: 4px;
-  }
-
-  .calling-dots span {
-    width: 5px;
-    height: 5px;
-    background: var(--amber);
-    border-radius: 50%;
-    animation: bounce 1.2s ease-in-out infinite;
-  }
-
-  .calling-dots span:nth-child(2) { animation-delay: 0.2s; }
-  .calling-dots span:nth-child(3) { animation-delay: 0.4s; }
-
-  @keyframes bounce {
-    0%, 100% { transform: translateY(0); opacity: 0.4; }
-    50% { transform: translateY(-4px); opacity: 1; }
-  }
-
-  /* NINA WIDGET AREA */
-  .nina-widget-area {
-    margin-top: 8px;
-  }
-
-  .nina-label {
-    font-family: 'DM Mono', monospace;
-    font-size: 11px;
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-    color: var(--muted);
+  /* ── BOTTOM CTA ── */
+  .bottom-cta {
+    position: relative;
+    z-index: 1;
     text-align: center;
-    margin-bottom: 16px;
+    padding: 100px 24px;
+    background: linear-gradient(to bottom, var(--bg), #120a05, var(--bg));
   }
 
-  elevenlabs-convai {
-    display: block;
+  .bottom-cta h2 {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 900;
+    font-size: clamp(40px, 6vw, 72px);
+    text-transform: uppercase;
+    letter-spacing: -0.01em;
+    margin-bottom: 20px;
   }
 
-  /* TICKER BAR */
-  .ticker {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background: rgba(10,10,10,0.9);
-    border-top: 1px solid var(--gray-line);
-    backdrop-filter: blur(8px);
-    overflow: hidden;
-    height: 36px;
-    z-index: 10;
+  .bottom-cta h2 em {
+    font-style: italic;
+    color: var(--orange);
   }
 
-  .ticker-inner {
-    display: flex;
-    align-items: center;
-    height: 100%;
-    white-space: nowrap;
-    animation: ticker 30s linear infinite;
-    gap: 48px;
-    padding-left: 100%;
-  }
-
-  .ticker-item {
-    font-family: 'DM Mono', monospace;
-    font-size: 11px;
+  .bottom-cta p {
+    font-size: 16px;
     color: var(--muted);
+    max-width: 440px;
+    margin: 0 auto 40px;
+    line-height: 1.6;
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    position: relative;
+    z-index: 1;
+    border-top: 1px solid rgba(255,255,255,0.07);
+    padding: 28px 48px;
     display: flex;
     align-items: center;
-    gap: 8px;
-    flex-shrink: 0;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 16px;
   }
 
-  .ticker-item .sym { color: var(--white); font-weight: 500; }
-  .ticker-item .up { color: var(--green); }
-  .ticker-item .down { color: #ef4444; }
-
-  @keyframes ticker {
-    0% { transform: translateX(0); }
-    100% { transform: translateX(-100%); }
+  .footer-logo {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 900;
+    font-size: 16px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.4);
   }
 
+  .footer-legal {
+    font-size: 11px;
+    color: rgba(255,255,255,0.25);
+    max-width: 600px;
+    line-height: 1.5;
+  }
+
+  /* ── ANIMATIONS ── */
   @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(16px); }
-    to { opacity: 1; transform: translateY(0); }
+    from { opacity: 0; transform: translateY(20px); }
+    to   { opacity: 1; transform: translateY(0); }
   }
 
-  @media (max-width: 768px) {
-    .page { grid-template-columns: 1fr; gap: 40px; padding: 0 24px; }
-    .left { padding: 60px 0 0; }
-    .right { padding: 0 0 80px; }
-    .form-row { grid-template-columns: 1fr; }
+  /* ── RESPONSIVE ── */
+  @media (max-width: 900px) {
+    nav { padding: 0 24px; }
+    .nav-links { display: none; }
+    .features { padding: 60px 24px; }
+    .features-grid { grid-template-columns: 1fr; }
+    footer { flex-direction: column; align-items: flex-start; }
+  }
+
+  @media (max-width: 600px) {
+    .octagon-wrap { width: 340px; height: 340px; }
+    .stats-bar { flex-wrap: wrap; }
+    .stat { min-width: 50%; }
   }
 </style>
 </head>
 <body>
 
-<div class="page">
-  <!-- LEFT -->
-  <div class="left">
-    <div class="badge">
-      <span class="badge-dot"></span>
-      Kraken × NinjaTrader
-    </div>
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">NinjaTrader</div>
+  <ul class="nav-links">
+    <li><a href="#">Futures</a></li>
+    <li><a href="#">Platforms</a></li>
+    <li><a href="#">Pricing</a></li>
+    <li><a href="#">Learn</a></li>
+    <li><a href="#">Blog</a></li>
+    <li><a href="#">Support</a></li>
+  </ul>
+  <div class="nav-actions">
+    <a href="#" class="nav-login">Log In</a>
+    <a href="#" class="btn-open">Open Account</a>
+  </div>
+</nav>
 
-    <div class="logo">
-      <div class="logo-mark"></div>
-      <div>
-        <div class="logo-text">NinjaTrader</div>
-        <div class="logo-sub">Futures Trading Platform</div>
-      </div>
-    </div>
+<!-- HERO -->
+<section class="hero">
 
-    <h1>Your futures<br>journey <em>starts</em><br>here.</h1>
-
-    <p class="subtitle">As a Kraken member, you now have access to professional-grade futures trading. We'll have Nina walk you through everything — no experience required.</p>
-
-    <div class="steps">
-      <div class="step">
-        <div class="step-num">01</div>
-        <div class="step-content">
-          <strong>Platform Setup</strong>
-          <span>Get your workspace configured and connected</span>
-        </div>
-      </div>
-      <div class="step">
-        <div class="step-num">02</div>
-        <div class="step-content">
-          <strong>Sim Trading</strong>
-          <span>Practice with $100K in virtual funds, live data</span>
-        </div>
-      </div>
-      <div class="step">
-        <div class="step-num">03</div>
-        <div class="step-content">
-          <strong>First Trade</strong>
-          <span>Place your first Micro futures contract confidently</span>
-        </div>
-      </div>
-    </div>
-
-    <div class="kraken-note">
-      <strong>Kraken member benefit</strong>
-      Your brokerage account is already linked. No additional setup required — just activate and trade.
-    </div>
+  <!-- Background octagon -->
+  <div class="octagon-wrap">
+    <svg viewBox="0 0 560 560" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <polygon
+        points="196,20 364,20 540,196 540,364 364,540 196,540 20,364 20,196"
+        stroke="rgba(232,69,10,0.3)" stroke-width="1.5" fill="none"/>
+      <polygon
+        points="206,34 354,34 526,206 526,354 354,526 206,526 34,354 34,206"
+        stroke="rgba(232,69,10,0.12)" stroke-width="1" fill="none"/>
+    </svg>
   </div>
 
-  <!-- RIGHT -->
-  <div class="right">
-    <div class="card">
-      <div class="card-header">
-        <div class="card-header-top">
-          <div class="card-title">Create your profile</div>
-          <div class="card-tag">Free Access</div>
-        </div>
-        <div class="card-desc">Nina will call you to get you set up</div>
-      </div>
+  <!-- Scattered stars -->
+  <div class="star" style="top:12%; left:6%; transform:rotate(-20deg)">
+    <svg width="52" height="52" viewBox="0 0 52 52"><polygon points="26,2 32,20 51,20 36,32 42,50 26,38 10,50 16,32 1,20 20,20" fill="rgba(255,255,255,0.12)"/></svg>
+  </div>
+  <div class="star" style="top:22%; left:11%; transform:rotate(10deg)">
+    <svg width="28" height="28" viewBox="0 0 52 52"><polygon points="26,2 32,20 51,20 36,32 42,50 26,38 10,50 16,32 1,20 20,20" fill="rgba(255,255,255,0.08)"/></svg>
+  </div>
+  <div class="star" style="top:55%; left:4%; transform:rotate(5deg)">
+    <svg width="38" height="38" viewBox="0 0 52 52"><polygon points="26,2 32,20 51,20 36,32 42,50 26,38 10,50 16,32 1,20 20,20" fill="rgba(255,255,255,0.1)"/></svg>
+  </div>
+  <div class="star" style="top:70%; left:9%">
+    <svg width="22" height="22" viewBox="0 0 52 52"><polygon points="26,2 32,20 51,20 36,32 42,50 26,38 10,50 16,32 1,20 20,20" fill="rgba(255,255,255,0.07)"/></svg>
+  </div>
+  <div class="star" style="top:10%; right:7%; transform:rotate(15deg)">
+    <svg width="44" height="44" viewBox="0 0 52 52"><polygon points="26,2 32,20 51,20 36,32 42,50 26,38 10,50 16,32 1,20 20,20" fill="rgba(255,255,255,0.1)"/></svg>
+  </div>
+  <div class="star" style="top:28%; right:5%; transform:rotate(-8deg)">
+    <svg width="26" height="26" viewBox="0 0 52 52"><polygon points="26,2 32,20 51,20 36,32 42,50 26,38 10,50 16,32 1,20 20,20" fill="rgba(255,255,255,0.08)"/></svg>
+  </div>
+  <div class="star" style="top:60%; right:8%; transform:rotate(20deg)">
+    <svg width="48" height="48" viewBox="0 0 52 52"><polygon points="26,2 32,20 51,20 36,32 42,50 26,38 10,50 16,32 1,20 20,20" fill="rgba(255,255,255,0.12)"/></svg>
+  </div>
+  <div class="star" style="top:78%; right:5%">
+    <svg width="20" height="20" viewBox="0 0 52 52"><polygon points="26,2 32,20 51,20 36,32 42,50 26,38 10,50 16,32 1,20 20,20" fill="rgba(255,255,255,0.07)"/></svg>
+  </div>
 
-      <div class="card-body">
-        <!-- FORM -->
-        <div id="form-state">
-          <div class="form-row">
-            <div class="form-group">
-              <label>First name</label>
-              <input type="text" id="first-name" value="Mia" autocomplete="off">
-            </div>
-            <div class="form-group">
-              <label>Last name</label>
-              <input type="text" id="last-name" value="D'Antonio" autocomplete="off">
-            </div>
-          </div>
-
-          <div class="form-group">
-            <label>Email address</label>
-            <input type="text" id="email" value="dantoniomia@gmail.com" autocomplete="off">
-          </div>
-
-          <div class="form-group">
-            <label>Trading experience</label>
-            <select id="experience">
-              <option value="" disabled selected>Select your background</option>
-              <option value="crypto" selected>Crypto only (new to futures)</option>
-              <option value="stocks">Stocks & ETFs</option>
-              <option value="some-futures">Some futures experience</option>
-              <option value="active">Active futures trader</option>
-            </select>
-          </div>
-
-          <div class="divider"><span>onboarding call</span></div>
-
-          <div class="form-group">
-            <label>Phone number</label>
-            <input type="tel" id="phone" value="647-200-7568" autocomplete="off">
-          </div>
-
-          <button class="submit-btn" id="submit-btn" onclick="handleSubmit()">
-            Activate Account &amp; Connect with Nina →
-          </button>
-
-          <p class="legal">By continuing you agree to NinjaTrader's Terms of Service. Futures trading involves substantial risk of loss.</p>
-        </div>
-
-        <!-- SUCCESS STATE -->
-        <div class="success-state" id="success-state">
-          <div class="success-icon">✓</div>
-          <div class="success-name">Welcome, <span id="display-name">Jordan</span>.</div>
-          <div class="success-msg">Your NinjaTrader account is active.<br>Nina is ready to walk you through everything.</div>
-
-          <div class="calling-indicator">
-            <div class="calling-dots">
-              <span></span><span></span><span></span>
-            </div>
-            Nina is connecting now
-          </div>
-
-          <div class="nina-label">Talk to Nina — your onboarding guide</div>
-          <div class="nina-widget-area">
-            <div id="widget-container"></div>
-          </div>
-        </div>
-      </div>
+  <!-- Partnership badge -->
+  <div class="partnership">
+    <div class="partnership-ufc">UFC</div>
+    <div class="partnership-divider"></div>
+    <div class="partnership-nt">
+      <div class="partnership-nt-name">NinjaTrader</div>
+      <div class="partnership-nt-sub">a Payward company</div>
     </div>
+  </div>
+  <div class="official-badge">Official Partner of UFC</div>
+
+  <!-- Headline -->
+  <h1 class="hero-headline">
+    Trade With The <em>#1</em><br>Rated Futures Platform
+  </h1>
+
+  <p class="hero-sub">
+    Low commissions and day-trading margins. Free simulated trading.<br>
+    <strong>Built for traders who don't tap out.</strong>
+  </p>
+
+  <!-- CTAs -->
+  <div class="hero-ctas">
+    <a href="#" class="btn-primary">Start Trading Futures</a>
+    <a href="#" class="btn-secondary">Train in Sim Mode</a>
+  </div>
+
+</section>
+
+<!-- STATS BAR -->
+<div class="stats-bar">
+  <div class="stat">
+    <div class="stat-num">$50</div>
+    <div class="stat-label">Day-Trade Margins on MES</div>
+  </div>
+  <div class="stat">
+    <div class="stat-num">$0</div>
+    <div class="stat-label">Platform Fee</div>
+  </div>
+  <div class="stat">
+    <div class="stat-num">1M+</div>
+    <div class="stat-label">Traders on the Platform</div>
+  </div>
+  <div class="stat">
+    <div class="stat-num">Free</div>
+    <div class="stat-label">Simulated Trading</div>
   </div>
 </div>
 
-<!-- TICKER -->
-<div class="ticker">
-  <div class="ticker-inner">
-    <div class="ticker-item"><span class="sym">MES</span> Micro E-Mini S&P 500 <span class="up">▲ 5,847.25 +0.42%</span></div>
-    <div class="ticker-item"><span class="sym">MNQ</span> Micro E-Mini Nasdaq <span class="up">▲ 20,412.50 +0.61%</span></div>
-    <div class="ticker-item"><span class="sym">MCL</span> Micro Crude Oil <span class="down">▼ 71.84 -0.18%</span></div>
-    <div class="ticker-item"><span class="sym">MGC</span> Micro Gold <span class="up">▲ 3,318.40 +0.29%</span></div>
-    <div class="ticker-item"><span class="sym">MBT</span> Micro Bitcoin <span class="up">▲ 103,420 +1.14%</span></div>
-    <div class="ticker-item"><span class="sym">M2K</span> Micro Russell 2000 <span class="down">▼ 2,089.30 -0.07%</span></div>
-    <div class="ticker-item"><span class="sym">MES</span> Micro E-Mini S&P 500 <span class="up">▲ 5,847.25 +0.42%</span></div>
-    <div class="ticker-item"><span class="sym">MNQ</span> Micro E-Mini Nasdaq <span class="up">▲ 20,412.50 +0.61%</span></div>
-    <div class="ticker-item"><span class="sym">MCL</span> Micro Crude Oil <span class="down">▼ 71.84 -0.18%</span></div>
-    <div class="ticker-item"><span class="sym">MGC</span> Micro Gold <span class="up">▲ 3,318.40 +0.29%</span></div>
+<!-- FEATURES -->
+<div class="features">
+  <div class="features-grid">
+
+    <div class="feature-card">
+      <svg class="feature-icon" viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="4,30 14,18 22,24 30,12 40,20"/>
+        <polyline points="34,20 40,20 40,26"/>
+      </svg>
+      <div class="feature-title">Industry-Low Commissions</div>
+      <div class="feature-desc">Trade Micro E-Mini futures from $0.09/contract. Keep more of your profits where they belong — in your account.</div>
+    </div>
+
+    <div class="feature-card">
+      <svg class="feature-icon" viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="6" y="6" width="32" height="32" rx="2"/>
+        <line x1="6" y1="16" x2="38" y2="16"/>
+        <line x1="16" y1="16" x2="16" y2="38"/>
+      </svg>
+      <div class="feature-title">Advanced Charting</div>
+      <div class="feature-desc">Professional-grade charts with 100+ indicators, custom strategies, and direct order execution right from the chart.</div>
+    </div>
+
+    <div class="feature-card">
+      <svg class="feature-icon" viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="22" cy="22" r="16"/>
+        <polyline points="22,12 22,22 30,28"/>
+      </svg>
+      <div class="feature-title">Real-Time Market Data</div>
+      <div class="feature-desc">Stream live Level II quotes, Time & Sales, and depth-of-market data on CME Group products 24/5.</div>
+    </div>
+
+    <div class="feature-card">
+      <svg class="feature-icon" viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M22 4 L38 14 L38 30 L22 40 L6 30 L6 14 Z"/>
+        <path d="M22 12 L30 17 L30 27 L22 32 L14 27 L14 17 Z" opacity="0.5"/>
+      </svg>
+      <div class="feature-title">Free Sim Trading</div>
+      <div class="feature-desc">Practice with $100,000 in virtual funds on live market data. Master your strategy before risking real capital.</div>
+    </div>
+
+    <div class="feature-card">
+      <svg class="feature-icon" viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="8" y="20" width="6" height="14" rx="1"/>
+        <rect x="19" y="12" width="6" height="22" rx="1"/>
+        <rect x="30" y="6" width="6" height="28" rx="1"/>
+      </svg>
+      <div class="feature-title">Strategy Backtesting</div>
+      <div class="feature-desc">Test automated strategies against years of historical data with NinjaTrader's Strategy Analyzer.</div>
+    </div>
+
+    <div class="feature-card">
+      <svg class="feature-icon" viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M6 34 C10 24, 18 16, 22 16 C26 16, 30 28, 38 10"/>
+        <circle cx="22" cy="16" r="3" fill="currentColor"/>
+      </svg>
+      <div class="feature-title">Automated Trading</div>
+      <div class="feature-desc">Build, deploy, and automate trading strategies with NinjaScript — no third-party software required.</div>
+    </div>
+
   </div>
 </div>
 
-<script>
-  let capturedFirstName = '';
+<!-- BOTTOM CTA -->
+<div class="bottom-cta">
+  <h2>Ready to <em>Compete?</em></h2>
+  <p>Open a free account in minutes. No funding required to start sim trading today.</p>
+  <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap;">
+    <a href="#" class="btn-primary">Open Free Account</a>
+    <a href="#" class="btn-secondary">Learn More</a>
+  </div>
+</div>
 
-  function handleSubmit() {
-    const firstName = document.getElementById('first-name').value.trim();
-
-    if (!firstName) {
-      const input = document.getElementById('first-name');
-      input.focus();
-      input.style.borderColor = 'rgba(239,68,68,0.5)';
-      setTimeout(() => input.style.borderColor = '', 2000);
-      return;
-    }
-
-    capturedFirstName = firstName;
-    document.getElementById('display-name').textContent = firstName;
-    document.getElementById('submit-btn').disabled = true;
-    document.getElementById('submit-btn').textContent = 'Activating...';
-
-    setTimeout(() => {
-      document.getElementById('form-state').style.display = 'none';
-      const successEl = document.getElementById('success-state');
-      successEl.classList.add('visible');
-      setTimeout(() => loadWidget(firstName), 300);
-    }, 1200);
-  }
-
-  function loadWidget(name) {
-    const container = document.getElementById('widget-container');
-    container.innerHTML = '';
-    const widget = document.createElement('elevenlabs-convai');
-    widget.setAttribute('agent-id', 'agent_2201ktcbm27me0yvwh5gby241qbd');
-    widget.setAttribute('variant', 'full');
-    widget.setAttribute('dynamic-variables', JSON.stringify({ user_name: name }));
-    container.appendChild(widget);
-  }
-
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Enter') handleSubmit();
-  });
-</script>
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">NinjaTrader · A Payward Company</div>
+  <div class="footer-legal">
+    Futures trading involves substantial risk of loss and is not appropriate for all investors. Past performance is not necessarily indicative of future results. NinjaTrader LLC is registered as a Futures Commission Merchant with the CFTC.
+  </div>
+</footer>
 
 </body>
 </html>
