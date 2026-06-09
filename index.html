@@ -675,9 +675,43 @@
   </div>
 </footer>
 
-<!-- ── ELEVENLABS NINA WIDGET (floating orb, bottom-right) ── -->
-<!-- Paste your agent ID into the agent-id attribute below -->
-<elevenlabs-convai agent-id="agent_2201ktcbm27me0yvwh5gby241qbd"></elevenlabs-convai>
+<!-- ── ELEVENLABS NINA WIDGET ── -->
+<script>
+  window.addEventListener('load', function() {
+    fetch('https://api.npoint.io/6792a978b829cb379e3c')
+      .then(function(r) { return r.json(); })
+      .then(function(data) {
+        var vars = {
+          user_name:           'Mia',
+          kraken_account_id:   'KR-1234567',
+          caller_phone_number: '+1-647-200-7568',
+          signup_date:         'June first, 2026',
+          user_id:             'USR-78421',
+          deposit_amount:      data.amount,
+          deposit_date:        data.initiated_date
+        };
+        var w = document.createElement('elevenlabs-convai');
+        w.setAttribute('agent-id', 'agent_2201ktcbm27me0yvwh5gby241qbd');
+        w.setAttribute('dynamic-variables', JSON.stringify(vars));
+        document.body.appendChild(w);
+      })
+      .catch(function() {
+        // Fallback: launch widget with mock data if fetch fails
+        var w = document.createElement('elevenlabs-convai');
+        w.setAttribute('agent-id', 'agent_2201ktcbm27me0yvwh5gby241qbd');
+        w.setAttribute('dynamic-variables', JSON.stringify({
+          user_name:           'Mia',
+          kraken_account_id:   'KR-1234567',
+          caller_phone_number: '+1-647-200-7568',
+          signup_date:         'June first, 2026',
+          user_id:             'USR-78421',
+          deposit_amount:      '$500',
+          deposit_date:        'June fifth, 2026'
+        }));
+        document.body.appendChild(w);
+      });
+  });
+</script>
 
 </body>
 </html>
